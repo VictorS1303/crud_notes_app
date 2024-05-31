@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans: 100, 200, 300, 400, 500, 600, 700, 800, 900');
+
+
+:root
+{
+    --body-background-color: #4169e1;
+    --primary-text-color: #333;
+    --secondary-text-color: #fff;
+    --header-background-color: #fff;
+
+    /* Note Colors */
+    --note-one-color: #333;
+    --note-one-background-color: #fff;
+
+    --note-two-color: #fff;
+    --note-two-background-color: #333;
+    
+    --note-three-color: #3fbc3f;
+    --note-three-background-color: #fff;
+
+    --note-four-color: #fff;
+    --note-four-background-color: #3fbc3f;
+
+    /* Radii */
+    --base-border-radius: 10px;
+
+    /* Shadows */
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+    --text-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+}
+
+body
+{
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--body-background-color);
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    user-select: none;
+}
+
+input,
+textarea
+{
+    font-family: inherit;
+    background-color: transparent;
+}
+
+textarea
+{
+    resize: none;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: inherit;
+}
