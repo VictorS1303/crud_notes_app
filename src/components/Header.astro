@@ -1,11 +1,13 @@
 ---
 import NotesCounter from './NotesCounter.astro'
+import DeleteAllNotesButton from './DeleteAllNotesButton.astro'
 ---
 
 <header class="header" id="header">
     <h2>CRUD Notes App</h2>
     <div>
         <NotesCounter />
+        <DeleteAllNotesButton />
     </div>
 </header>
 
@@ -20,5 +22,13 @@ import NotesCounter from './NotesCounter.astro'
         height: 70px;
         color: var(--primary-text-color);
         background-color: var(--header-background-color);
+    }
+
+    header div
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
     }
 </style>
