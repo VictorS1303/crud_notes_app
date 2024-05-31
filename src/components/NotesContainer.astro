@@ -1,9 +1,23 @@
-<div class="container notes-container" id="notes_container"></div>
+---
+import Note from "./Note.astro";
+---
 
+<div class="container notes-container" id="notes_container">
+    <div class="container notes-inner-container">
+        <div class="note-wrapper">
+            <Note />
+        </div>
+        <div class="note-wrapper">
+            <Note />
+        </div>
+        <div class="note-wrapper">
+            <Note />
+        </div>
+    </div>
+</div>
 
 <style>
-    .container.notes-container
-    {
+    .container.notes-container {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -11,5 +25,14 @@
         height: 80vh;
         width: 80vw;
         margin-top: 35px;
+    }
+
+    .container.notes-inner-container
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 40px;
     }
 </style>

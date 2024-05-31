@@ -1,0 +1,75 @@
+---
+const noteStyles = ['one', 'two', 'three', 'four']
+const randomNoteStyle = noteStyles[Math.floor(Math.random() * noteStyles.length)]
+---
+
+<div class={`note ${randomNoteStyle}`} id="note">
+    <h3 class="title note-title" id="note_title">Hey</h3>
+    <h4 class="body note-body" id="note_body">How are you?</h4>
+</div>
+
+
+<style>
+    .note
+    {
+        background-color: #fff;
+        height: 200px;
+        width: 200px;
+        box-shadow: var(--box-shadow);
+    }
+
+    .note .title
+    {
+        border: none;
+    }
+
+    .note .title,
+    .note .body
+    {
+        padding: 5px;
+    }
+
+    /* Note Colors */
+    .one
+    {
+        color: var(--note-one-color);
+        background-color: var(--note-one-background-color);
+    }
+    .one .title
+    {
+        border-bottom: 2px solid var(--note-one-border-color);
+    }
+    
+    .two
+    {
+        color: var(--note-two-color);
+        background-color: var(--note-two-background-color);
+    }
+
+    .two .title
+    {
+        border-bottom: 2px solid var(--note-two-border-color);
+    }
+
+    .three
+    {
+        color: var(--note-three-color);
+        background-color: var(--note-three-background-color);
+    }
+
+    .three .title
+    {
+        border-bottom: 2px solid var(--note-three-border-color);
+    }
+
+    .four
+    {
+        color: var(--note-four-color);
+        background-color: var(--note-four-background-color);
+    }
+
+    .four .title
+    {
+        border-bottom: 2px solid var(--note-four-border-color);
+    }
+</style>

@@ -10,15 +10,19 @@
 
     /* Note Colors */
     --note-one-color: #333;
+    --note-one-border-color: #333;
     --note-one-background-color: #fff;
 
     --note-two-color: #fff;
+    --note-two-border-color: #fff;
     --note-two-background-color: #333;
     
     --note-three-color: #3fbc3f;
+    --note-three-border-color: #3fbc3f;
     --note-three-background-color: #fff;
 
     --note-four-color: #fff;
+    --note-four-border-color: #fff;
     --note-four-background-color: #3fbc3f;
 
     /* Radii */
