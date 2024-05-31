@@ -1,0 +1,38 @@
+<div class="container notes-counter container">
+    <h3>
+        <span>Note<span class="plural" id="plural">s</span>:</span> <span class="number total-notes-number" id="total_notes_number">2</span>
+    </h3>
+</div>
+
+<style>
+    .plural
+    {
+        display: none;
+    }
+
+    h3,
+    h3 > span
+    {
+        display: flex;
+    }
+
+    h3
+    {
+        gap: 10px;
+    }
+</style>
+
+<script>
+    const plural = document.getElementById('plural') 
+    const totalNotesNumber = document.getElementById('total_notes_number')
+
+    function displayPlural()
+    {
+        if(totalNotesNumber.textContent > '0')
+        {
+            plural.style.display = 'block'
+        }
+    }
+
+    displayPlural()
+</script>
