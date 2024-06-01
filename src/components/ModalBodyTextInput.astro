@@ -1,0 +1,21 @@
+---
+const {minlength, maxlength} = Astro.props
+---
+
+<textarea class="modal-body-text" id="modal_body_text" placeholder="Enter text" minlength={minlength} maxlength={maxlength}></textarea>
+
+<style>
+    textarea
+    {
+        font-family: inherit;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fff;
+        height: 250px;
+        width: 85%;
+        border-radius: inherit;
+        padding: 10px;
+    }
+</style>
