@@ -3,7 +3,21 @@ import Modal from './Modal.astro'
 import ModalTitleInput from './ModalTitleInput.astro'
 ---
 
-<Modal isCreateNoteModal={true}>
-    <ModalTitleInput/>
-    
-</Modal>
+<div class="modal create-note-modal" id="create_note_modal">
+    <ModalTitleInput maxlength="20"/>
+</div>
+
+<style>
+    .modal
+    {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 500px;
+        width: 400px;
+        background-color: #25bd25;
+        border-radius: calc(var(--base-border-radius));
+        box-shadow: var(--box-shadow);
+    }
+</style>
