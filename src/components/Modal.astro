@@ -1,4 +1,10 @@
-<div class="container modal-container" id="modal_container"></div>
+---
+import ModalTitleInput from './ModalTitleInput.astro'
+---
+
+<div class="container modal-container" id="modal_container">
+    <ModalTitleInput maxlength="20"/>
+</div>
 
 
 <style>
@@ -11,6 +17,7 @@
         height: 500px;
         width: 400px;
         box-shadow: var(--box-shadow);
+        background-color: #fff;
         border-radius: calc(var(--base-border-radius))
     }
 </style>
