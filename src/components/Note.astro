@@ -1,15 +1,8 @@
 ---
 const noteStyles = ['one', 'two', 'three', 'four']
-const randomNoteStyle = noteStyles[Math.floor(Math.random() * noteStyles.length)]
 ---
 
-<div class={`note ${randomNoteStyle}`} id="note">
-    <h3 class="title note-title" id="note_title">Hey</h3>
-    <h4 class="body note-body" id="note_body">How are you?</h4>
-</div>
-
-
-<style>
+<style is:global>
     .note
     {
         background-color: #fff;
@@ -40,7 +33,7 @@ const randomNoteStyle = noteStyles[Math.floor(Math.random() * noteStyles.length)
     {
         border-bottom: 2px solid var(--note-one-border-color);
     }
-    
+
     .two
     {
         color: var(--note-two-color);
