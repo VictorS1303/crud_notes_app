@@ -1,0 +1,21 @@
+---
+const {maxlength, backgroundColor} = Astro.props
+---
+
+<input type="text" class="title-input modal-title-input" id="modal_title_input" placeholder="Enter title" maxlength={maxlength}>
+
+
+<style>
+    .modal-title-input
+    {
+        font-family: inherit;
+        font-size: 15px;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        padding: 10px 15px;
+        border-radius: inherit;
+    }
+</style>
