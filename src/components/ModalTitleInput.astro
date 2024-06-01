@@ -1,8 +1,8 @@
 ---
-const {maxlength, backgroundColor} = Astro.props
+const {minlength, maxlength} = Astro.props
 ---
 
-<input type="text" class="title-input modal-title-input" id="modal_title_input" placeholder="Enter title" maxlength={maxlength}>
+<input type="text" class="title-input modal-title-input" id="modal_title_input" placeholder="Enter title" minlength={minlength} maxlength={maxlength}>
 
 
 <style>
@@ -17,5 +17,6 @@ const {maxlength, backgroundColor} = Astro.props
         width: 85%;
         padding: 10px 15px;
         border-radius: inherit;
+        background-color: #fff;
     }
 </style>
