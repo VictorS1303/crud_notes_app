@@ -1,0 +1,80 @@
+---
+const noteStyles = ['one', 'two', 'three', 'four']
+const randomNoteStyle = noteStyles[Math.floor(Math.random() * noteStyles.length)]
+
+import Note from './Note.astro'
+---
+
+<button class="button add-note-button" id="add_note_btn">
+    <i class="fas fa-plus"></i>
+</button>
+
+<style>
+    .add-note-button
+    {
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        font-size: 25px;
+        height: 50px;
+        width: 50px;
+        border-radius: calc(var(--base-border-radius) * 50);
+        box-shadow: var(--box-shadow);
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    const addNoteButton = document.querySelector<HTMLButtonElement>('#add_note_btn')
+    const notesContainer = document.querySelector<HTMLDivElement>('#notes_container')
+    const notesInnerContainer = document.querySelector<HTMLDivElement>('#notes_inner_container')
+    const noteWrapper = document.querySelector<HTMLDivElement>('#note_wrapper')
+
+    const noteStyles = ['one', 'two', 'three', 'four']
+
+
+    // EVENT LISTENERS //
+    addNoteButton.addEventListener('mouseenter', generateRandomButtonBackgroundColor)
+    addNoteButton.addEventListener('mouseleave', resetBackgroundColor)
+    addNoteButton.addEventListener('click', addNote)
+
+    // FUNCTIONS //
+
+    // Generate Random Background Color
+    function generateRandomButtonBackgroundColor()
+    {
+        const randomBackgroundColor = `#${Math.floor(Math.random() * 0xffffff).toString(16)}`
+        addNoteButton.style.backgroundColor = randomBackgroundColor
+    }
+
+    // Reset Background Color
+    function resetBackgroundColor()
+    {
+        addNoteButton.style.color = 'var(--primary-text-color);'
+        addNoteButton.style.backgroundColor = '#fff'
+    }
+
+    // Add Note
+    function addNote()
+    {
+        const noteStyles = ['one', 'two', 'three', 'four']
+        const randomNoteStyle = noteStyles[Math.floor(Math.random() * noteStyles.length)]
+
+        const newNote = document.createElement('div')
+        newNote.classList.add('note', `${randomNoteStyle}`)
+
+        const noteTitle = document.createElement('h3')
+        noteTitle.classList.add('title', 'note-title')
+        noteTitle.setAttribute('id', 'note_title')
+        noteTitle.textContent = 'Hey'
+
+
+        const noteBody = document.createElement('h4')
+        noteBody.classList.add('body', 'note-body')
+        noteBody.setAttribute('id', 'note_body')
+        noteBody.textContent =  'How are you?'
+
+        newNote.append(noteTitle, noteBody)
+        notesInnerContainer.appendChild(newNote)
+    }
+</script>
