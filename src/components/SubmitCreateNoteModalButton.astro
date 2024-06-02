@@ -78,35 +78,76 @@ const {buttonText} = Astro.props
 
     // Add Note
     function addNote() {
-        const noteStyles = ['one', 'two', 'three', 'four']
-        const randomNoteStyle = noteStyles[Math.floor(Math.random() * noteStyles.length)]
+        const newNote = generateNote()
 
-        const newNote = document.createElement('div')
-        newNote.classList.add('note', `${randomNoteStyle}`)
+        // Note Title
+        const noteTitle = createNoteTitle('title note-title')
 
-        const noteTitle = document.createElement('h3')
-        noteTitle.classList.add('title', 'note-title')
-        noteTitle.setAttribute('id', 'note_title')
-        noteTitle.textContent = modalTitleInput.value
+        // Note Body
+        const noteBody = createNoteBody('body note-body')
 
-        const noteBody = document.createElement('h4')
-        noteBody.classList.add('body', 'note-body')
-        noteBody.setAttribute('id', 'note_body')
-        noteBody.textContent = modalBodyText.value
-
-        const deleteNoteButton = document.createElement('i')
-        deleteNoteButton.classList.add('fas', 'fa-trash-can')
-        deleteNoteButton.style.position = 'absolute'
-        deleteNoteButton.style.bottom = '20px'
-        deleteNoteButton.style.right = '20px'
-        deleteNoteButton.style.cursor = 'pointer'
-
+        // Delete Single Note Button
+        const deleteNoteButton = createDeleteSingleNoteButton('fas fa-trash-can')    
         deleteNoteButton.addEventListener('click', (e) => removeNote(e))
         
-
+        // Appending Note
         newNote.append(noteTitle, noteBody, deleteNoteButton)
         notesInnerContainer.appendChild(newNote)
     }
+
+    // Generate Note
+    function generateNote()
+    {
+        const newNote = document.createElement('div')
+        newNote.classList.add('note', `${generateRandomNoteStyle()}`)
+
+        return newNote
+    }
+
+    function generateRandomNoteStyle()
+    {
+        const noteStyles = ['one', 'two', 'three', 'four']
+        const randomNoteStyle = noteStyles[Math.floor(Math.random() * noteStyles.length)]
+        return randomNoteStyle
+    }
+
+    // Create Note Title
+    function createNoteTitle(noteTitleClasses)
+    {
+        const noteTitle = document.createElement('h3')
+        noteTitle.textContent = modalTitleInput.value
+        noteTitle.setAttribute('id', 'note_title')
+        noteTitle.className = noteTitleClasses
+        return noteTitle
+    }
+
+    // Create Note Body
+    function createNoteBody(noteBodyClasses)
+    {
+        const noteBody = document.createElement('h4')
+        noteBody.textContent = modalBodyText.value
+        noteBody.className = noteBodyClasses
+        noteBody.setAttribute('id', 'note_body')
+        return noteBody
+    }
+
+    // Delete Single Note Button
+    function createDeleteSingleNoteButton(deleteSingleNoteButtonClasses)
+    {
+        const deleteSingleNoteButton = document.createElement('i')
+        deleteSingleNoteButton.className = deleteSingleNoteButtonClasses
+        deleteSingleNoteButton.setAttribute('id', 'delete_single_note_button')
+
+        deleteSingleNoteButton.style.position = 'absolute'
+        deleteSingleNoteButton.style.bottom = '20px'
+        deleteSingleNoteButton.style.right = '20px'
+        deleteSingleNoteButton.style.cursor = 'pointer'
+
+
+        return deleteSingleNoteButton
+    }
+
+
 
     function removeNote(e)
     {
@@ -115,18 +156,5 @@ const {buttonText} = Astro.props
             e.target.closest('.note').remove()
         }
     }
-
-    // Disable Create Note Modal Open Button
-    // function disableCreateNoteModalButton() {
-    //     if(createNoteModal.classList.contains('active')) {
-    //         addNoteButton.disabled = true
-    //         addNoteButton.style.pointerEvents = 'none'
-    //         addNoteButton.style.cursor = 'default'
-    //     } else {
-    //         addNoteButton.disabled = false
-    //         addNoteButton.style.pointerEvents = 'all'
-    //         addNoteButton.style.cursor = 'pointer'
-    //     }
-    // }
 </script>
 
