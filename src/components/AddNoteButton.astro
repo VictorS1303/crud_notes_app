@@ -36,7 +36,6 @@ import Note from './Note.astro'
     addNoteButton.addEventListener('mouseenter', generateRandomButtonBackgroundColor)
     addNoteButton.addEventListener('mouseleave', resetBackgroundColor)
     addNoteButton.addEventListener('click', openCreateNoteModal)
-    addNoteButton.addEventListener('click', disableCreateNoteModalButton)
 
     // FUNCTIONS //
 
@@ -57,6 +56,7 @@ import Note from './Note.astro'
     function openCreateNoteModal()
     {
         createNoteModal.classList.add('active')
+        console.log(createNoteModal.classList.contains('active'))
     }
 
     
