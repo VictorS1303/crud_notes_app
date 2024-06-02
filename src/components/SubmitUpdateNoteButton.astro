@@ -1,0 +1,36 @@
+---
+const {buttonText} = Astro.props
+---
+<button class="submit-update-note-modal-button" id="submit_update_note_modal_button">
+    {buttonText}
+</button>
+
+<style>
+    #submit_update_note_modal_button
+    {
+        font-family: inherit;
+        display: inline-block;
+        position: absolute;
+        bottom: 7.5%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        padding: 10px 15px;
+        text-transform: uppercase;
+        background-color: #fff;
+        color: #25bd25;
+        border-radius: inherit;
+        box-shadow: var(--box-shadow);
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        cursor: pointer;
+    }
+
+    .submit-create-note-modal-button:active
+    {
+        left: 7.5%;
+        transform: scale(.98);
+        box-shadow: none;
+    }
+</style>

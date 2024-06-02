@@ -1,0 +1,35 @@
+---
+import Modal from './Modal.astro'
+import ModalTitleInput from './ModalTitleInput.astro'
+import ModalBodyTextInput from './ModalBodyTextInput.astro'
+import SubmitUpdateNoteButton from './SubmitCreateNoteModalButton.astro'
+---
+
+<div class="modal update-note-modal" id="update_note_modal">
+    <ModalTitleInput maxlength="20"/>
+    <ModalBodyTextInput maxlength="20"/>
+    <SubmitUpdateNoteButton buttonText="Update Note"/>
+    <ModalBodyTextInput maxlength="150"/>
+</div>
+
+<style>
+    .modal
+    {
+        position: absolute;
+        top: -100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 500px;
+        width: 400px;
+        background-color: #25bd25;
+        border-radius: calc(var(--base-border-radius));
+        box-shadow: var(--box-shadow);
+        transition: top .3s ease-in;
+    }
+
+    .modal.active
+    {
+        top: 50%;
+        transition: top .3s ease-in;
+    }
+</style>
