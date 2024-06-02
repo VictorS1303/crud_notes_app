@@ -1,8 +1,8 @@
 ---
-const {minlength, maxlength} = Astro.props
+const {minlength, maxlength, className, id} = Astro.props
 ---
 
-<input type="text" class="title-input modal-title-input" id="modal_title_input" placeholder="Enter title" minlength={minlength} maxlength={maxlength}>
+<input type="text" class="modal-title-input" id={id} placeholder="Enter title" minlength={minlength} maxlength={maxlength}>
 
 
 <style>

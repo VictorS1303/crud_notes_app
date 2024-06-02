@@ -6,10 +6,9 @@ import SubmitCreateNoteModalButton from './SubmitCreateNoteModalButton.astro'
 ---
 
 <div class="modal create-note-modal" id="create_note_modal">
-    <ModalTitleInput maxlength="20"/>
-    <ModalBodyTextInput maxlength="20"/>
+    <ModalTitleInput class="input create-note-modal-title-input" id="modal_title_input" maxlength="20"/>
+    <ModalBodyTextInput class="input create-note-modal-body-input" id="modal_body_input" maxlength="20"/>
     <SubmitCreateNoteModalButton buttonText="Create Note"/>
-    <ModalBodyTextInput maxlength="150"/>
 </div>
 
 <style>

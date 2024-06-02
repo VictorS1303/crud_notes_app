@@ -1,4 +1,4 @@
----
+<!-- ---
 import Modal from './Modal.astro'
 import ModalTitleInput from './ModalTitleInput.astro'
 import ModalBodyTextInput from './ModalBodyTextInput.astro'
@@ -6,10 +6,9 @@ import SubmitUpdateNoteButton from './SubmitCreateNoteModalButton.astro'
 ---
 
 <div class="modal update-note-modal active" id="update_note_modal">
-    <ModalTitleInput maxlength="20"/>
-    <ModalBodyTextInput maxlength="20"/>
-    <SubmitUpdateNoteButton buttonText="Update Note"/>
-    <ModalBodyTextInput maxlength="150"/>
+    <ModalTitleInput class="update-title-input" id="update_title_input" maxlength="20"/>
+    <ModalBodyTextInput class="update-body-input" id="update_modal_body_text" maxlength="150"/>
+    <SubmitUpdateNoteButton class="submit-update-note-button" id="submit_update_note_button" buttonText="Update Note"/>
 </div>
 
 <style>
@@ -33,3 +32,40 @@ import SubmitUpdateNoteButton from './SubmitCreateNoteModalButton.astro'
         transition: top .3s ease-in;
     }
 </style>
+
+<script>
+    const updateNoteModal = document.querySelector('#update_note_modal')
+    const modalBodyUpdateText = document.querySelector<HTMLInputElement>('#update_modal_body_text')
+    const modalUpdateTitleInput = document.querySelector<HTMLTextAreaElement>('#update_title_input')
+    const submitUpdateNoteButton = document.querySelector<HTMLButtonElement>('#submit_update_note_button')
+
+    // window.addEventListener('keypress', (e) => submitUpdateNodeModal(e))
+    submitUpdateNoteButton.addEventListener('click', validateUpdate)
+
+    // function submitUpdateNodeModal(e) {
+    //     if(e.keyCode === 13) {
+    //         validateUpdate()
+    //     }
+    // }
+
+    function validateUpdate() {
+       
+        if(modalUpdateTitleInput.value.trim() !== '' && modalBodyUpdateText.value.trim() !== '') {
+            console.log(123)
+            setTimeout(() => {
+                console.log(123)
+                updateNote()
+                // clearInputs()
+            }, 600)
+            updateNoteModal.classList.remove('active')
+            // disableCreateNoteModalButton()
+        } else {
+            alert('Please fill out both fields')
+        }
+    }
+
+    function updateNote()
+    {
+        alert(123)
+    }
+</script> -->

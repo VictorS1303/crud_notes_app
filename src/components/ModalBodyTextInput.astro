@@ -1,8 +1,8 @@
 ---
-const {minlength, maxlength} = Astro.props
+const {minlength, maxlength, className, id} = Astro.props
 ---
 
-<textarea class="modal-body-text" id="modal_body_text" placeholder="Enter text" minlength={minlength} maxlength={maxlength}></textarea>
+<textarea class={className} id={id} placeholder="Enter text" minlength={minlength} maxlength={maxlength}></textarea>
 
 <style>
     textarea
