@@ -24,11 +24,24 @@
 
     function deleteAllNotes()
     {
-        while(notesInnerContainer.firstChild)
+        const isWantingToDeleteAllNotes = confirm('Are you sure you want to delete all notes? This\'ll delete them from the database, too, with no chance to undo it.')
+
+        if(isWantingToDeleteAllNotes)
         {
-            notesInnerContainer.firstChild.remove()
+            const isReallyWantingToDeleteAllNotes = confirm('Are you sure you want to delete all notes? This\'ll delete them from the database, too, with no chance to undo it.')
+
+            if(!isReallyWantingToDeleteAllNotes)
+            {
+                return
+            }
+            
+            while(notesInnerContainer.firstChild)
+            {
+                notesInnerContainer.firstChild.remove()
+                totalNotesNumber.textContent = '0'
+            }
         }
 
-        totalNotesNumber.textContent = '0'
+
     }
 </script>
