@@ -14,3 +14,21 @@
         transform: scale(.98);
     }
 </style>
+
+<script>
+    const deleteAllNotesButton = document.getElementById('delete_all_notes_button')
+    const notesInnerContainer = document.getElementById('notes_inner_container')
+    const totalNotesNumber = document.getElementById('total_notes_number')
+
+    deleteAllNotesButton.addEventListener('click', deleteAllNotes)
+
+    function deleteAllNotes()
+    {
+        while(notesInnerContainer.firstChild)
+        {
+            notesInnerContainer.firstChild.remove()
+        }
+
+        totalNotesNumber.textContent = '0'
+    }
+</script>
