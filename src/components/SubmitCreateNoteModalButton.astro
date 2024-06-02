@@ -148,11 +148,17 @@ const {buttonText} = Astro.props
     }
 
 
-
+    // Remove Note
     function removeNote(e)
     {
         if(e.target.classList.contains('fa-trash-can'))
         {
+            const isWantingToDelete = confirm('Are you sure you want to delete this note? This will remove it from the database, too, and cannot be undone!')
+
+            if(!isWantingToDelete)
+            {
+                return
+            }
             e.target.closest('.note').remove()
         }
     }
