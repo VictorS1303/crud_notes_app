@@ -5,7 +5,7 @@ import ModalBodyTextInput from './ModalBodyTextInput.astro'
 import SubmitCreateNoteModalButton from './SubmitCreateNoteModalButton.astro'
 ---
 
-<div class="modal create-note-modal" id="create_note_modal">
+<div class="modal create-note-modal active" id="create_note_modal">
     <ModalTitleInput maxlength="20"/>
     <ModalBodyTextInput maxlength="20"/>
     <SubmitCreateNoteModalButton buttonText="Create Note"/>
@@ -20,7 +20,7 @@ import SubmitCreateNoteModalButton from './SubmitCreateNoteModalButton.astro'
         transform: translate(-50%, -50%);
         height: 500px;
         width: 400px;
-        background-color: #25bd25;
+        background-color: #191972;
         border-radius: calc(var(--base-border-radius));
         box-shadow: var(--box-shadow);
         transition: top .3s ease-in;
