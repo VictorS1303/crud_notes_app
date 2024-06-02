@@ -57,21 +57,27 @@ const {buttonText} = Astro.props
         }
     }
 
-    function validateInput() {
-        if(modalTitleInput.value.trim() !== '' && modalBodyText.value.trim() !== '') {
-            setTimeout(() => {
+    function validateInput()
+    {
+        if(modalTitleInput.value.trim() !== '' && modalBodyText.value.trim() !== '')
+        {
+            setTimeout(() =>
+            {
                 addNote()
                 clearInputs()
             }, 600)
+            
             createNoteModal.classList.remove('active')
-            // disableCreateNoteModalButton()
-        } else {
+        }
+        else
+        {
             alert('Please fill out both fields')
         }
     }
 
     // Clear Inputs
-    function clearInputs() {
+    function clearInputs()
+    {
         modalTitleInput.value = ''
         modalBodyText.value = ''
     }
