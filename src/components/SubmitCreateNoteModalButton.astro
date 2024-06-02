@@ -33,6 +33,8 @@ const {buttonText} = Astro.props
         transform: scale(.98);
         box-shadow: none;
     }
+
+    
 </style>
 
 <script>
@@ -92,8 +94,26 @@ const {buttonText} = Astro.props
         noteBody.setAttribute('id', 'note_body')
         noteBody.textContent = modalBodyText.value
 
-        newNote.append(noteTitle, noteBody)
+        const deleteNoteButton = document.createElement('i')
+        deleteNoteButton.classList.add('fas', 'fa-trash-can')
+        deleteNoteButton.style.position = 'absolute'
+        deleteNoteButton.style.bottom = '20px'
+        deleteNoteButton.style.right = '20px'
+        deleteNoteButton.style.cursor = 'pointer'
+
+        deleteNoteButton.addEventListener('click', (e) => removeNote(e))
+        
+
+        newNote.append(noteTitle, noteBody, deleteNoteButton)
         notesInnerContainer.appendChild(newNote)
+    }
+
+    function removeNote(e)
+    {
+        if(e.target.classList.contains('fa-trash-can'))
+        {
+            e.target.closest('.note').remove()
+        }
     }
 
     // Disable Create Note Modal Open Button
