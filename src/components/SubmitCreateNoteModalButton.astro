@@ -34,3 +34,102 @@ const {buttonText} = Astro.props
         box-shadow: none;
     }
 </style>
+
+<script>
+    const submitCreateNoteModalButton = document.querySelector('#submit_create_note_modal_button')
+    const modalBodyText = document.querySelector<HTMLInputElement>('#modal_body_text')
+    const modalTitleInput = document.querySelector<HTMLTextAreaElement>('#modal_title_input')
+    const createNoteModal = document.querySelector('#create_note_modal')
+    const notesContainer = document.querySelector<HTMLDivElement>('#notes_container')
+    const notesInnerContainer = document.querySelector<HTMLDivElement>('#notes_inner_container')
+    const noteWrapper = document.querySelector<HTMLDivElement>('#note_wrapper')
+    const addNoteButton = document.querySelector<HTMLButtonElement>('#add_note_btn')
+
+
+    // EVENT LISTENERS //
+    window.addEventListener('keypress', (e) => submitCreateNoteModal(e))
+    submitCreateNoteModalButton.addEventListener('click', validateInput)
+
+
+
+    function submitCreateNoteModal(e)
+    {
+        if(e.keyCode === 13)
+        {
+            validateInput()
+        }
+    }
+
+
+    function validateInput()
+    {
+        if(modalTitleInput.value.trim() !== '' || modalTitleInput.value.trim() !== '')
+        {
+            setTimeout(() => {
+                addNote()
+                clearInputs()
+            }, 600)
+            createNoteModal.classList.remove('active')
+            disableCreateNoteModalButton()
+            
+        }
+        else
+        {
+            
+            alert('Please fill out both fields')
+            
+        }
+        
+    }
+
+    // Clear Inputs
+    function clearInputs()
+    {
+        modalTitleInput.value = ''
+        modalBodyText.value = ''
+    }
+
+    // Add Note
+    function addNote()
+    {
+        const noteStyles = ['one', 'two', 'three', 'four']
+        const randomNoteStyle = noteStyles[Math.floor(Math.random() * noteStyles.length)]
+
+        const newNote = document.createElement('div')
+        newNote.classList.add('note', `${randomNoteStyle}`)
+
+        const noteTitle = document.createElement('h3')
+        noteTitle.classList.add('title', 'note-title')
+        noteTitle.setAttribute('id', 'note_title')
+        noteTitle.textContent = modalTitleInput.value
+        console.log(noteTitle.textContent)
+
+
+        const noteBody = document.createElement('h4')
+        noteBody.classList.add('body', 'note-body')
+        noteBody.setAttribute('id', 'note_body')
+        noteBody.textContent =  modalBodyText.value
+
+        newNote.append(noteTitle, noteBody)
+        notesInnerContainer.appendChild(newNote)
+    }
+
+  // Disable Create Note Modal Open Button
+  function disableCreateNoteModalButton()
+  {
+        if(createNoteModal.classList.contains('active'))
+        {
+            addNoteButton.disabled = true
+            addNoteButton.style.pointerEvents = 'none'
+            addNoteButton.style.cursor = 'default'
+        }
+        else
+        {
+            addNoteButton.disabled = false
+            addNoteButton.style.pointerEvents = 'all'
+            addNoteButton.style.cursor = 'pointer'
+        }
+  }
+
+  
+</script>

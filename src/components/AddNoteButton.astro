@@ -26,9 +26,8 @@ import Note from './Note.astro'
 
 <script>
     const addNoteButton = document.querySelector<HTMLButtonElement>('#add_note_btn')
-    const notesContainer = document.querySelector<HTMLDivElement>('#notes_container')
-    const notesInnerContainer = document.querySelector<HTMLDivElement>('#notes_inner_container')
-    const noteWrapper = document.querySelector<HTMLDivElement>('#note_wrapper')
+    const createNoteModal = document.querySelector('#create_note_modal')
+
 
     const noteStyles = ['one', 'two', 'three', 'four']
 
@@ -36,7 +35,8 @@ import Note from './Note.astro'
     // EVENT LISTENERS //
     addNoteButton.addEventListener('mouseenter', generateRandomButtonBackgroundColor)
     addNoteButton.addEventListener('mouseleave', resetBackgroundColor)
-    addNoteButton.addEventListener('click', addNote)
+    addNoteButton.addEventListener('click', openCreateNoteModal)
+    addNoteButton.addEventListener('click', disableCreateNoteModalButton)
 
     // FUNCTIONS //
 
@@ -54,27 +54,10 @@ import Note from './Note.astro'
         addNoteButton.style.backgroundColor = '#fff'
     }
 
-    // Add Note
-    function addNote()
+    function openCreateNoteModal()
     {
-        const noteStyles = ['one', 'two', 'three', 'four']
-        const randomNoteStyle = noteStyles[Math.floor(Math.random() * noteStyles.length)]
-
-        const newNote = document.createElement('div')
-        newNote.classList.add('note', `${randomNoteStyle}`)
-
-        const noteTitle = document.createElement('h3')
-        noteTitle.classList.add('title', 'note-title')
-        noteTitle.setAttribute('id', 'note_title')
-        noteTitle.textContent = 'Hey'
-
-
-        const noteBody = document.createElement('h4')
-        noteBody.classList.add('body', 'note-body')
-        noteBody.setAttribute('id', 'note_body')
-        noteBody.textContent =  'How are you?'
-
-        newNote.append(noteTitle, noteBody)
-        notesInnerContainer.appendChild(newNote)
+        createNoteModal.classList.add('active')
     }
+
+    
 </script>
