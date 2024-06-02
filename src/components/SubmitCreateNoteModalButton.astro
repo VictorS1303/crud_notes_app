@@ -46,6 +46,7 @@ const {buttonText} = Astro.props
     const notesInnerContainer = document.querySelector<HTMLDivElement>('#notes_inner_container')
     const noteWrapper = document.querySelector<HTMLDivElement>('#note_wrapper')
     const addNoteButton = document.querySelector<HTMLButtonElement>('#add_note_btn')
+    const totalNotesNumber = document.querySelector<HTMLSpanElement>('#total_notes_number')
 
     // EVENT LISTENERS //
     window.addEventListener('keypress', (e) => submitCreateNoteModal(e))
@@ -96,9 +97,15 @@ const {buttonText} = Astro.props
         const deleteNoteButton = createDeleteSingleNoteButton('fas fa-trash-can')    
         deleteNoteButton.addEventListener('click', (e) => removeNote(e))
         
+
+        // Incrementing Note Counter
+        totalNotesNumber.innerText = (notesInnerContainer.children.length).toString()
+        
+        
         // Appending Note
         newNote.append(noteTitle, noteBody, deleteNoteButton)
         notesInnerContainer.appendChild(newNote)
+        
     }
 
     // Generate Note
@@ -166,6 +173,7 @@ const {buttonText} = Astro.props
                 return
             }
             e.target.closest('.note').remove()
+            totalNotesNumber.innerText = (notesInnerContainer.children.length - 1).toString()
         }
     }
 </script>
